@@ -1,0 +1,21 @@
+.parntSelectCls{
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    position: relative;
+    padding-left: 1rem;
+}
+.labelCls{
+    color: #999;
+}
+.selectCls{
+    width: 74%;
+    height: 43px;
+    padding: 14px 16px 0 10px;
+    outline: 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
