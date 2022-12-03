@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/swamisreporting/static/css/main.7d329caf.css",
+    "main.js": "/swamisreporting/static/js/main.96e025bb.js",
+    "static/js/787.e2f1805f.chunk.js": "/swamisreporting/static/js/787.e2f1805f.chunk.js",
+    "static/media/swamis.jpg": "/swamisreporting/static/media/swamis.945d4e57fbd288f0a651.jpg",
+    "static/media/logo.svg": "/swamisreporting/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/swamisreporting/index.html",
+    "main.7d329caf.css.map": "/swamisreporting/static/css/main.7d329caf.css.map",
+    "main.96e025bb.js.map": "/swamisreporting/static/js/main.96e025bb.js.map",
+    "787.e2f1805f.chunk.js.map": "/swamisreporting/static/js/787.e2f1805f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7d329caf.css",
+    "static/js/main.96e025bb.js"
+  ]
+}
