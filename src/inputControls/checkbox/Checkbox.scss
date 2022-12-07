@@ -1,0 +1,14 @@
+.indivitalCheckItemCls {
+    margin-top: 0.3rem;
+    vertical-align: text-bottom;
+  }
+  .requiredCls:after {
+    content:" *";
+    color: red;
+  }
+  .labelCls{
+    color: #999;
+}
+.parentCheckboxCls{
+    padding-left: 1rem;
+}

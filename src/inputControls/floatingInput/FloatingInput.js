@@ -11,6 +11,18 @@ const FloatingInput = (props) => {
     }
     props.handleChange(text,pname);
   };
+
+  const getLabelCls = () => {
+    let lclsName = "";
+    if(isActive){
+      lclsName = "Active ";
+    }
+    if(props.required){
+      lclsName = lclsName + "requiredCls "
+    }
+    return lclsName;
+  };
+
   return (
     <>
     <div>
@@ -22,7 +34,7 @@ const FloatingInput = (props) => {
         value={props.value}
       />
 
-      <label htmlFor={props.htmlFor} className={ isActive ? "Active" : ""}>{props.label}</label>
+      <label htmlFor={props.htmlFor} className={ getLabelCls()}>{props.label}</label>
     </div>
       {
         props?.invalidObj?.invalid && (

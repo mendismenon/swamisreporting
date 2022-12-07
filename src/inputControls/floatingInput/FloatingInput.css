@@ -54,3 +54,8 @@
     padding-left: 0;
     padding-top: 1rem;
 }
+
+.requiredCls:after {
+    content:" *";
+    color: red;
+  }

@@ -4,7 +4,7 @@ import "./Select.scss";
 export default function Select(props) {
   return (
     <div className="parntSelectCls">
-      <label className="labelCls">{props.label}</label>
+      <label className={props.required ? "labelCls requiredCls": "labelCls"}>{props.label}</label>
       <select value={props.value} className="selectCls" placeholder="Test" onChange={(e)=>props.onChange(e.target.value, props.name)}>
         <option selected disabled>
           Select
