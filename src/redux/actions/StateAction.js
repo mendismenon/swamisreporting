@@ -1,6 +1,6 @@
 export const VERIFY = "VERIFY";
 export const PLAN_SELECT = "PLAN_SELECT";
-
+export const STATE = "STATE";
 export const verifyActn = (pemail) => {
     return {
         type: VERIFY,
@@ -14,3 +14,9 @@ export const planFetch = (pdata) => {
         data: pdata
     }
 }
+export const stateChanges = (pdata) => {
+    return {
+        type: STATE,
+        data: pdata
+    }
+} 

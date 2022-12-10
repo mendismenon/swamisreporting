@@ -1,21 +1,27 @@
+import React from "react";
 import "./Checkbox.scss";
 
 export default function Checkbox(props) {
-  return (
-    <div className="parentCheckboxCls">
-      <div className={props.required ? "requiredCls labelCls": "labelCls"}>{props.label}</div>
 
-      {props.items.map((item, ind) => (
-        <div className="indivitalCheckItemCls">
+  const checkBxClk = (pcheckedVal, pcurrentObj, pindex) => {
+    props.onClick(pcheckedVal, pcurrentObj, pindex);
+  };
+
+  return (
+    <div className="checkk-cls">
+      <div>
+        <label class="contain">
           <input
             type="checkbox"
-            id={item.id}
-            name={item.name}
-            value={item.value}
+            checked={props.checked && "checked"}
+            onClick={(e) =>
+              checkBxClk(e.target.checked, props.value, props.index)
+            }
+            value={props}
           />
-          {item.value}
-        </div>
-      ))}
+          <div class="checkmark-cmn-cls"></div>
+        </label>
+      </div>
     </div>
   );
 }

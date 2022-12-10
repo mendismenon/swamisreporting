@@ -1,14 +1,77 @@
-.indivitalCheckItemCls {
-    margin-top: 0.3rem;
-    vertical-align: text-bottom;
-  }
-  .requiredCls:after {
-    content:" *";
-    color: red;
-  }
-  .labelCls{
-    color: #999;
+// div,
+// span {
+//     border: 1px solid red;
+// }
+
+.contain {
+  margin: 0px;
 }
-.parentCheckboxCls{
-    padding-left: 1rem;
+
+.contain input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
 }
+
+.checkmark-cmn-cls {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #dddee2;
+  border-radius: 3px;
+  background-color: #fff;
+  align-items: center;
+  background-color: #F5F9FF;
+}
+
+.contain input:checked~.checkmark-cmn-cls {
+  background-color: #1987FB;
+  border: none;
+}
+
+.checkmark-cmn-cls:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.contain input:checked~.checkmark-cmn-cls:after {
+  display: block;
+}
+
+.contain .checkmark-cmn-cls:after {
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border-radius: 2px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+.chckbx-content {
+  width: 250px;
+  font-size: 12px;
+  color: rgba(9, 28, 63, 0.5);
+  text-align: center;
+}
+
+.checkk-cls {
+  padding-top: 5px;
+}
+
+
+// @media(max-width:450px){
+  
+// .checkk-cls {
+//     padding-top: 0px;
+// }
+// }

@@ -1,20 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./FloatingInput.css";
 
 const FloatingInput = (props) => {
   const [isActive, setIsActive] = useState(false);
+
+  useEffect(()=>{
+    if (props.value !== "" && props.value !== undefined) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  },[props.name]);
+
   const handleTextChange = (text,pname) => {
     if (text !== "") {
       setIsActive(true);
     } else {
       setIsActive(false);
     }
-    props.handleChange(text,pname);
+    props.handleChange(text,pname,props.isRequired);
   };
 
   const getLabelCls = () => {
+    debugger
     let lclsName = "";
-    if(isActive){
+    if(isActive /*&& props.value !== ""*/){
       lclsName = "Active ";
     }
     if(props.required){
@@ -37,10 +47,10 @@ const FloatingInput = (props) => {
       <label htmlFor={props.htmlFor} className={ getLabelCls()}>{props.label}</label>
     </div>
       {
-        props?.invalidObj?.invalid && (
+        props?.isValid === false && (
           <div className="errorMsgCls">
           {
-            props?.invalidObj?.msg
+            props?.errorMsg
           }
           </div>
         )

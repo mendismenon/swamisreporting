@@ -1,4 +1,4 @@
-import { PLAN_SELECT, VERIFY } from "../actions/StateAction"
+import { PLAN_SELECT, STATE, VERIFY } from "../actions/StateAction"
 
 
 const initialState = {
@@ -10,6 +10,9 @@ const initialState = {
         tickets: [],
         previousExpand: -1,
         meals: []
+    },
+    reportingData: {
+
     }
 }
 
@@ -23,6 +26,11 @@ const StateReducer = (state = initialState, action) => {
         case PLAN_SELECT: {
             return{
                 ...state, planSelected: action.data
+            }
+        };
+        case STATE: {
+            return{
+                ...state,reportingData: action.data
             }
         }
         default:{

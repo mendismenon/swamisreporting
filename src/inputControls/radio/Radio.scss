@@ -1,0 +1,96 @@
+/* The container */
+.radio-cmn-cls {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.contain_RdBtn_{
+  margin: 0px;
+  display: flex;
+  padding-left: 1rem;
+}
+
+/* Hide the browser's default radio button */
+.radio-cmn-cls input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radio-cmn-cls {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  // background-color: #eee;
+  border: 1px solid rgb(194, 189, 189);
+  border-radius: 50%;
+  background-color: #F5F9FF;
+  margin-top: 2px;
+  margin-right: 0.3rem;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-cmn-cls:hover input ~ .radio-cmn-cls {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.team-flex-div input:checked :has(.mem-only-cls) {
+  background-color: black;
+  border: 1px solid red;
+}
+
+.contain_RdBtn_ input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-cmn-cls:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.contain_RdBtn_ input:checked ~ .radio-cmn-cls:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.contain_RdBtn_ .radio-cmn-cls:after {
+  top: 4px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2196F3;
+}
+
+
+.radio-cmn-cls-Payment {
+  height: 19px;
+  width: 19px;
+}
+
+.contain_RdBtn_ .radio-cmn-cls-Payment:after {
+  top: 3px;
+  left: 3px;
+  // transform: translate(-50%, -50%);
+  width: 11px;
+  height: 11px;
+}
+

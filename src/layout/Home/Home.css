@@ -19,7 +19,9 @@
     width: calc(100% + 2px);
 
 }
-
+.padTpHmCls{
+    padding-top: 1.5rem;
+}
 .m7w29c {
     margin-top: 12px;
     background-color: #fff;
@@ -28,9 +30,10 @@
     margin-bottom: 12px;
     position: relative;
     padding-bottom: 16px;
-    margin-top: 45px;
 }
-
+.spacAddBtwnFildCls{
+    padding: 1rem;
+}
 .custCallHeadData {
     font-weight: 400;
     font-size: 24pt;
@@ -46,14 +49,22 @@
     letter-spacing: 0;
     margin-top: 12px;
 }
-
+.dateStyleCls{
+    background-color: #F5F9FF;
+    height: 30px;
+    outline: 0;
+    border: 1px solid #ddd;
+}
 .zAVwcb {
     border-top: 1px solid #dadce0;
     left: 0;
     width: 100%;
     margin-top: 12px;
 }
-
+.radioParentCls{
+    display: flex;
+    padding-top: 0.5rem;
+}
 .subHeadTitleCls {
     font-size: 14px;
     font-weight: 400;
@@ -84,12 +95,7 @@
     background-color: rgb(240, 235, 248);
 }
 
-.custNameIpt {
-    margin-top: 12px;
-}
-
 .btnCls {
-    padding-left: 20px;
     margin-top: 12px;
 }
 
@@ -106,7 +112,21 @@
 .custCallDatatWebCls{
     display: block;
 }
-
+.ReqHeadCls{
+    padding-left: 1rem;
+}
+.dispFlex{
+    display: flex;
+}
+.my-auto{
+    margin-top: auto;
+}
+.ml-half{
+    margin-left: 0.5rem;
+}
+.chck-updates{
+    font-family: Arial, Helvetica, sans-serif;
+}
 @media only screen and (max-width : 600px) {
     .logoHeadCls {
         display: none;
