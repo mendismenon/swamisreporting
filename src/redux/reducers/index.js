@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import AuthReducer from './AuthenticationRed';
 import BookPlanReducer from './BookingPlanRed';
+import formReducer from './FormRed';
 import StateReducer from './StateChanges';
 
 const appReducer= combineReducers({
     AuthReducer,
     BookPlanReducer,
-    StateReducer
+    StateReducer,
+    formReducer
 })
 export default appReducer
 

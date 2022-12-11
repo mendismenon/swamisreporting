@@ -22,7 +22,6 @@ const FloatingInput = (props) => {
   };
 
   const getLabelCls = () => {
-    debugger
     let lclsName = "";
     if(isActive /*&& props.value !== ""*/){
       lclsName = "Active ";

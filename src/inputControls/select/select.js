@@ -17,7 +17,7 @@ export default function Select(props) {
           Select
         </option>
         {props.optionsArray.map((x, y) => (
-          <option key={y}>{x}</option>
+          <option key={`selectKy${y}`}>{x.value}</option>
         ))}
       </select>
       {

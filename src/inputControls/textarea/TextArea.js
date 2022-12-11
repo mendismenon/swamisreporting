@@ -13,7 +13,6 @@ export default function TextArea(props) {
   },[props.name]);
 
   const handleTextChange = (text, pname) => {
-    debugger;
     if (text !== "") {
       setIsActive(true);
     } else {
@@ -22,7 +21,6 @@ export default function TextArea(props) {
     props.handleChange(text,pname,props.isRequired);
   };
   const getLabelCls = () => {
-    debugger
     let lclsName = "";
     if(isActive /*&& props.value !== ""*/){
       lclsName = "Active ";

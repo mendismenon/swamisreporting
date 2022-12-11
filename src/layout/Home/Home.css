@@ -22,6 +22,9 @@
 .padTpHmCls{
     padding-top: 1.5rem;
 }
+.btnGroupCls{
+    display: flex;
+}
 .m7w29c {
     margin-top: 12px;
     background-color: #fff;

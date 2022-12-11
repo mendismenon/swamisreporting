@@ -15,6 +15,13 @@ import TextArea from "../../inputControls/textarea/TextArea";
 import { useDispatch, useSelector } from "react-redux";
 import { STATE, stateChanges } from "../../redux/actions/StateAction";
 import { isEmpty } from "../../utill/validator";
+import {
+  CUSTOMER_REQUIREMENT,
+  NAME_SALES_MANAGER,
+  REQUIREMENT,
+} from "../../utill/constants";
+import Loader from "../../components/loader/Loader";
+import { formSubmitActn } from "../../redux/actions/FormAction";
 const Home = () => {
   const [data, setData] = useState({
     name_of_sales_manager: "",
@@ -29,8 +36,10 @@ const Home = () => {
   const stateValue = useSelector((state) => {
     return state.StateReducer.reportingData;
   });
+  const isLoading = useSelector((state)=>{
+    return state.formReducer.formObj.isLoading;
+  })
   const handleChange = (pdata, pname, isRequired) => {
-    debugger;
     var lcurrentObj = { ...stateValue };
     lcurrentObj[pname] = {};
     lcurrentObj[pname].value = pdata;
@@ -67,19 +76,37 @@ const Home = () => {
     handleChange(ldate, pVal);
   };
   const setDateValueFn = (pdate) => {
-    debugger;
     var dateParts = pdate.split("/");
     return new Date([dateParts[1], dateParts[0], dateParts[2]].join("/"));
   };
   const onBtnClick = () => {
-    axios
-      .post(
-        "https://sheet.best/api/sheets/d1cc308d-2e10-4a7a-96ee-0dff6d4de677",
-        data
-      )
-      .then((response) => {
-        console.log(response);
-      });
+    let ldata = {};
+    Object.keys({ ...stateValue }).map((pkey, pind) => {
+      let lflag = false;
+      let larr = [];
+      if (pkey === "customer_requirement") {
+        lflag = true;
+        ldata[pkey] = "";
+        let checkedArr = stateValue.customer_requirement.filter(
+          (lobj, lind) => {
+            return lobj.checked === true;
+          }
+        );
+        let lreqArr = checkedArr
+          .map((pobj, pind) => {
+            return pobj.value;
+          })
+          .join(", ");
+        ldata[pkey] = lreqArr;
+      } else {
+        ldata[pkey] = stateValue[pkey].value;
+      }
+    });
+    dispatch(formSubmitActn({...ldata}));
+  };
+
+  const onClearFormClik = () => {
+    dispatch(stateChanges({}));
   };
 
   return (
@@ -89,7 +116,7 @@ const Home = () => {
         <meta name="prerender-status-code" content="200"></meta>
         <title>Home</title>
       </Helmet>
-
+      {isLoading && <Loader FullScreen={true} />}
       <div className="HomePrentCls">
         <Header />
         <div className="parentDivHomeCls">
@@ -124,11 +151,15 @@ const Home = () => {
           <div className="m7w29c padTpHmCls">
             <Select
               label="Name of sales manager"
-              optionsArray={["Reshma", "Geffin", "Divya", "Siji", "Walk in"]}
+              optionsArray={NAME_SALES_MANAGER}
               onChange={handleChange}
               name="name_of_sales_manager"
               required={true}
-              value={stateValue?.name_of_sales_manager?.value}
+              value={
+                stateValue?.name_of_sales_manager?.value
+                  ? stateValue?.name_of_sales_manager?.value
+                  : ""
+              }
               isRequired={true}
               isValid={stateValue?.name_of_sales_manager?.valid}
               errorMsg={stateValue?.name_of_sales_manager?.errorMsg}
@@ -143,7 +174,11 @@ const Home = () => {
               name="customer_name"
               required={true}
               isRequired={true}
-              value={stateValue?.customer_name?.value}
+              value={
+                stateValue?.customer_name?.value
+                  ? stateValue?.customer_name?.value
+                  : ""
+              }
               isValid={stateValue?.customer_name?.valid}
               errorMsg={stateValue?.customer_name?.errorMsg}
               maxLength={30}
@@ -159,7 +194,11 @@ const Home = () => {
               maxLength={10}
               required={true}
               isRequired={true}
-              value={stateValue?.customer_number?.value}
+              value={
+                stateValue?.customer_number?.value
+                  ? stateValue?.customer_number?.value
+                  : ""
+              }
               isValid={stateValue?.customer_number?.valid}
               errorMsg={stateValue?.customer_number?.errorMsg}
             />
@@ -168,23 +207,7 @@ const Home = () => {
               Customer Requirement
             </div>
             <div className="ReqHeadCls">
-              {[
-                {
-                  id: "Tiles",
-                  name: "Tiles",
-                  value: "Tiles",
-                },
-                {
-                  id: "Sanitaries",
-                  name: "Sanitaries",
-                  value: "Sanitaries",
-                },
-                {
-                  id: "Fittings",
-                  name: "Fittings",
-                  value: "Fittings",
-                },
-              ].map((e, ind) => (
+              {CUSTOMER_REQUIREMENT.map((e, ind) => (
                 <div className="dispFlex">
                   <Checkbox
                     label={e.name}
@@ -206,13 +229,17 @@ const Home = () => {
             <div className="spacAddBtwnFildCls"></div>
             <div className="ReqHeadCls requiredCls labelCls">Requirement</div>
             <div className="radioParentCls">
-              {["Hot", "Cold"].map((pval, pind) => (
+              {REQUIREMENT.map((pval, pind) => (
                 <>
                   <Radio
                     for={"Payment1"}
                     onClick={handleChange}
                     value={pval}
-                    selected={stateValue?.requirement?.value}
+                    selected={
+                      stateValue?.requirement?.value
+                        ? stateValue?.requirement?.value
+                        : null
+                    }
                     label={pval}
                     name="requirement"
                   />
@@ -239,19 +266,29 @@ const Home = () => {
               label="Remarks"
               required={false}
               isRequired={false}
-              value={stateValue?.remarks?.value}
+              value={
+                stateValue?.remarks?.value ? stateValue?.remarks?.value : ""
+              }
               isValid={stateValue?.remarks?.valid}
               errorMsg={stateValue?.remarks?.errorMsg}
               handleChange={handleChange}
               name="remarks"
             />
             <div className="spacAddBtwnFildCls"></div>
-            <Button
-              value="Submit"
-              className="sendbtn btnCls"
-              parentClassName="btnPrntCls"
-              onClick={onBtnClick}
-            />
+            <div className="btnGroupCls">
+              <Button
+                value="Submit"
+                className="sendbtn btnCls"
+                parentClassName="btnPrntCls"
+                onClick={onBtnClick}
+              />
+              <Button
+                value="Clear form"
+                className="secondary btnCls"
+                parentClassName="btnPrntCls"
+                onClick={onClearFormClik}
+              />
+            </div>
           </div>
         </div>
       </div>
