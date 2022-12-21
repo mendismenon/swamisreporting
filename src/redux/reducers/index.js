@@ -2,13 +2,17 @@ import { combineReducers } from 'redux';
 import AuthReducer from './AuthenticationRed';
 import BookPlanReducer from './BookingPlanRed';
 import formReducer from './FormRed';
+import viewReducer from './ViewRecordRed';
 import StateReducer from './StateChanges';
+import tokenReducer from './TokenRefreshRed';
 
 const appReducer= combineReducers({
     AuthReducer,
     BookPlanReducer,
     StateReducer,
-    formReducer
+    formReducer,
+    viewReducer,
+    tokenReducer
 })
 export default appReducer
 
@@ -29,5 +33,6 @@ export default appReducer
 export const whitelisted=[
     'AuthReducer',
     'BookPlanReducer',
-    'StateReducer'
+    'StateReducer',
+    'tokenReducer'
 ]

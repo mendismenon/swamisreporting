@@ -11,7 +11,7 @@ function* formSubmitFn(action) {
         console.log(response);
         if (response?.status === 200) {
             yield put({ type: FORM_SUBMIT_SUCCESS, data: response.data });
-            yield put({type: STATE, data: {}});
+            //yield put({type: STATE, data: {}});
         }else{
             yield put({ type: FORM_SUBMIT_FAILURE, data: response?.data });
         }

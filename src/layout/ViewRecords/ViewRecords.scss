@@ -1,0 +1,21 @@
+
+.ViewPrentCls {
+    margin: auto;
+    max-width: 95vw;
+    width: 640px;
+    margin-top: 90px;
+}
+
+@media only screen and (max-width : 600px) {
+    .headCusstCallDataCls{
+        background-color: #007DFF;
+        margin-top: 15px;
+    }
+    .custCallDataCls {
+        padding-left: 15px;
+        font-weight: bold;
+        color: white;
+        /* padding-top: 2px; */
+        margin-top: 13px;
+    }
+}

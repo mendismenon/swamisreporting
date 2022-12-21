@@ -1,6 +1,6 @@
 export const urlPaths = {
   SIGN_IN: "/signin",
-  HOME: "",
-  BOOKING: "/booking",
+  HOME: "/",
+  VIEW_RECORDS: "/viewRecords",
   
 };

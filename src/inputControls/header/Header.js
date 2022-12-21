@@ -83,7 +83,7 @@ function Header(props) {
                 <ul className="main-nav" id="js-menu">
                   <li className="liLink">
                     <span
-                      onClick={() => props.history.push()}
+                      onClick={() => navigate(urlPaths.HOME)}
                       style={{ cursor: "pointer" }}
                       className={`nav-links ${
                         props.nav_selected == navigation.HOME && "selectedNav"
@@ -103,22 +103,22 @@ function Header(props) {
                   </li>
                   <li className="liLink">
                     <span
-                      onClick={() => props.history.push(urls.ABOUT_US)}
+                      onClick={() => navigate(urlPaths.VIEW_RECORDS)}
                       style={{ cursor: "pointer" }}
                       className={`nav-links ${
                         props.nav_selected == navigation.ABOUT && "selectedNav"
                       }`}
                       id="navv"
                     >
-                      About Us
+                      View Records
                     </span>
                     <a
                       title="Watery - Best Employee Healthcare Platform "
                       href="https://www.google.com/teamsure/about-us"
-                      alt="About Us"
+                      alt="View Records"
                       style={{ fontSize: "0px" }}
                     >
-                      About Us
+                      View Records
                     </a>
                   </li>
                   <li className="liLink">
@@ -277,7 +277,8 @@ function Header(props) {
                 <li className="liLink">
                   <span
                     onClick={() => {
-                      props.history.push(urls.ABOUT_US);
+                      //props.history.push(urlPaths.VIEW_RECORDS);
+                      navigate(urlPaths.VIEW_RECORDS);
                       HandleToggle();
                     }}
                     id="navv"
@@ -285,15 +286,15 @@ function Header(props) {
                       props.nav_selected == navigation.ABOUT && "selectedNav"
                     }`}
                   >
-                    About Us
+                    View Records
                   </span>
                   <a
                     title="Watery - Best Employee Healthcare Platform "
                     href="https://www.google.com/teamsure/about-us"
-                    alt="About Us"
+                    alt="View Records"
                     style={{ fontSize: "0px" }}
                   >
-                    About Us
+                    View Records
                   </a>
                 </li>
                 <li className="liLink">

@@ -11,12 +11,12 @@
     height: 43px;
     padding: 14px 16px 0 10px;
     outline: 0;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(194, 189, 189);
     border-radius: 4px;
     background: #fff;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    background-color: #F5F9FF;
+    background-color: #D6E4F9;
 }
 .totalCountTicketCls{
     min-width: 4.5rem;

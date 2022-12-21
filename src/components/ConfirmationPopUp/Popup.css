@@ -1,0 +1,55 @@
+.pp_prnt_1
+{
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    position: fixed;
+    z-index: 999;
+    /* transition: opacity 500ms; */
+    opacity: 0.6;
+}
+.pp_cls
+{
+    width: 30%;
+    padding: 20px;
+    z-index: 999999999;
+    top: 50%;
+    left: 50%;
+    /* opacity: 1 !important; */
+    background-color: #fff;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    position: fixed;
+    transition: all 5s ease-in-out;
+    border: 1px solid white;
+}
+.mar1PerCls {
+    color: #091C3F;
+    text-align: center;
+    font-weight: bold;
+    
+}
+.endCls{
+	display: flex;
+    justify-content: flex-end;
+}
+.content{
+    font-size: 16px;
+    color: #091C3F;
+}
+
+@media (min-width: 800px) and (max-width: 1024px){
+    .pp_cls
+    {
+        width: 70%;
+    }
+}
+@media(max-width: 800px){
+    .pp_cls
+{
+    width: 80%;
+}
+}

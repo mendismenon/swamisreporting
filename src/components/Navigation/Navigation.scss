@@ -1,0 +1,47 @@
+.NavInnerHeader{
+    height: 35px;
+    border-bottom: 1px solid rgb(228, 225, 225);;
+    display: flex;
+    font-size: 13px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top:0;
+
+    /* justify-content: center; */
+    padding: 20px 10px 20px 10px;
+    align-items: center;
+    box-shadow: 0px 10px 30px rgb(94 125 182 / 10%);
+    background-color: #B4CEF7;
+    justify-content: space-between;
+}
+
+.navImgCls{
+    cursor: pointer;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.CircleNav{
+    height: 28px;
+    width: 28px;
+    text-align: center;
+    color: gray;
+    /*border: .5px solid rgb(191, 191, 194);
+    border-radius: 50%;*/
+    background-image: url(https://res.cloudinary.com/onsurity/image/upload/fl_lossy,f_auto,q_auto/v1592325082/New-home-screen/backIcn_jgsvuk.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.LoaderHeader{
+    background:#1987FB;
+    height: 3px;
+    transition: width 1s;
+}
+
+.BackBlock{
+    display: flex;
+    cursor: pointer;
+    width: 70px;
+}
