@@ -5,7 +5,6 @@ import { VIEW_RECORDS, VIEW_RECORDS_FAILURE, VIEW_RECORDS_SUCCESS } from "../act
 
 function* viewRecordsFn(action) {
     try{
-        debugger;
         let viewRecordsURL = pageURL.SHEET_URL;
         let response = yield call(apiCall, "get", viewRecordsURL);
         console.log(response);

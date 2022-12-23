@@ -1,4 +1,4 @@
-import { apiCall } from "../../utill/Api";
+import { apiCall, fetchCall } from "../../utill/Api";
 import { pageURL } from "../../utill/MicroServiceURL";
 import { FORM_SUBMIT, FORM_SUBMIT_FAILURE, FORM_SUBMIT_SUCCESS } from "../actions/FormAction";
 import { put, takeLatest, call } from "redux-saga/effects";
@@ -6,10 +6,10 @@ import { STATE } from "../actions/StateAction";
 
 function* formSubmitFn(action) {
     try{
-        let submitFormUrl = pageURL.SHEET_URL;
-        let response = yield call(apiCall, "post", submitFormUrl, action.data);
+        let submitFormUrl = pageURL.SAVE_USER;
+        let response = yield call(fetchCall, "post", submitFormUrl, action.data);
         console.log(response);
-        if (response?.status === 200) {
+        if (response?.status === 200 || response?.status === 201) {
             yield put({ type: FORM_SUBMIT_SUCCESS, data: response.data });
             //yield put({type: STATE, data: {}});
         }else{

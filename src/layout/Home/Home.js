@@ -67,6 +67,7 @@ const Home = () => {
   });
 
   useEffect(() => {
+    debugger;
     if (!errorResponseCheck && responseData !== null && apiCalled) {
       setShowPopUp({
         show: true,
@@ -139,10 +140,9 @@ const Home = () => {
       });
       ldata.upload_date = getFullDate(new Date());
       ldata.id = Date.now() + stateValue.customer_number.value;
-      debugger;
-      let lreq = getUploadFormDataRequest(ldata);
+      //let lreq = getUploadFormDataRequest(ldata);
       setApiCalled(true);
-      dispatch(formSubmitActn({ ...lreq }));
+      dispatch(formSubmitActn({ ...ldata }));
     } else if (!lcheckreqFields) {
       setShowPopUp({
         show: true,

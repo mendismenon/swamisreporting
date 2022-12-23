@@ -1,5 +1,5 @@
 //############################################//
-let env="dev" //dev, qa, prod
+let env="prod" //dev, qa, prod
 //############################################//
 
 const profileConfig = {
@@ -9,12 +9,12 @@ const profileConfig = {
     dashboardUrl: ""
   },
   dev:{
-    global: "",
+    global: "http://localhost:3500/",
     employeesure: "",
     dashboardUrl: ""
   },
   prod:{
-    global: "",
+    global: "https://reporting-979z.onrender.com/",
     employeesure: "",
     dashboardUrl: ""
   }
@@ -36,5 +36,6 @@ export const pageURL = {
   LOGIN_URL : urlPrefixGlobal("/users?country_id=~cId~&mobile_no=~mNum~"),
   SHEET_URL_OLD: "https://sheet.best/api/sheets/d1cc308d-2e10-4a7a-96ee-0dff6d4de677",
   TOKEN_REFRESH: "https://developers.google.com/oauthplayground/refreshAccessToken",
-  SHEET_URL : `https://sheets.googleapis.com/v4/spreadsheets/${SPREAD_SHEETS_ID}:batchUpdate`
+  SHEET_URL_OLD1 : `https://sheets.googleapis.com/v4/spreadsheets/${SPREAD_SHEETS_ID}:batchUpdate`,
+  SAVE_USER: urlPrefixGlobal("saveUser")
 }

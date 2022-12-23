@@ -11,7 +11,6 @@ const initialState = {
 }
 
 const viewReducer = (state = initialState, action) => {
-    debugger;
     switch(action.type){
         case VIEW_RECORDS:{
             return {

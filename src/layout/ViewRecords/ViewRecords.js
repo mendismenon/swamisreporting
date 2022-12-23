@@ -15,7 +15,6 @@ const ViewRecords = () => {
     return state.viewReducer.viewRecordObj.data;
   });
   const isLoading = useSelector((state) => {
-    debugger;
     return state.viewReducer.viewRecordObj.isLoading;
   });
   return (

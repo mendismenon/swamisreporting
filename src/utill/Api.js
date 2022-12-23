@@ -32,8 +32,27 @@ export const apiCall = async (pmethod, purl, preqObj) => {
       });
   }
 };
+
+export const fetchCall = (pmethod, purl, preqObj) => {
+  if (pmethod === "post" || pmethod === "patch") {
+      return fetch(purl,{
+        method: pmethod,
+        headers: axiosConfig(true)?.headers,
+        body: JSON.stringify(preqObj)
+      }).then((response) => {
+        return response;
+      })
+      .catch((err) => {
+        if (err?.response?.data?.status === 401) {
+          //Logout()
+          return err;
+        } else {
+          return err;
+        }
+      });
+  }
+}
 const axiosConfig = (pflag) => {
-  debugger;
   if (pflag) {
     return {
       headers: {
