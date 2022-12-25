@@ -123,7 +123,7 @@ function Header(props) {
                   </li>
                   <li className="liLink">
                     <span
-                      onClick={() => props.history.push(urls.CONTACT_US)}
+                      onClick={() => navigate(urlPaths.CALL_DASHBOARD)}
                       style={{ cursor: "pointer" }}
                       className={`nav-links ${
                         props.nav_selected == navigation.CONTACT &&
@@ -131,7 +131,7 @@ function Header(props) {
                       }`}
                       id="navv"
                     >
-                      Contact Us
+                      Call Dashboard
                     </span>
                     <a
                       title=" – Contact Us for Customer Support and Partnerships"
@@ -139,7 +139,7 @@ function Header(props) {
                       alt="Contact Us"
                       style={{ fontSize: "0px" }}
                     >
-                      Contact Us
+                      Call Dashboard
                     </a>
                   </li>
                   {/* <li className="liLink">
@@ -300,7 +300,7 @@ function Header(props) {
                 <li className="liLink">
                   <span
                     onClick={() => {
-                      props.history.push(urls.CONTACT_US);
+                      navigate(urlPaths.CALL_DASHBOARD);
                       HandleToggle();
                     }}
                     id="navv"
@@ -308,7 +308,7 @@ function Header(props) {
                       props.nav_selected == navigation.CONTACT && "selectedNav"
                     }`}
                   >
-                    Contact Us
+                    Call Dashboard
                   </span>
                   <a
                     title="Watery – Contact Us for Customer Support and Partnerships"
@@ -316,7 +316,7 @@ function Header(props) {
                     alt="Contact Us"
                     style={{ fontSize: "0px" }}
                   >
-                    Contact Us
+                    Call Dashboard
                   </a>
                 </li>
 

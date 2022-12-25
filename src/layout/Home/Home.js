@@ -110,7 +110,7 @@ const Home = () => {
   };
   const setDateValueFn = (pdate) => {
     var dateParts = pdate.split("/");
-    return new Date([dateParts[1], dateParts[0], dateParts[2]].join("/"));
+    return new Date([dateParts[0], dateParts[1], dateParts[2]].join("/"));
   };
   const onBtnClick = () => {
     let ldata = {};
@@ -125,7 +125,7 @@ const Home = () => {
           ldata[pkey] = "";
           let checkedArr = stateValue.customer_requirement.filter(
             (lobj, lind) => {
-              return lobj.checked === true;
+              return lobj?.checked === true;
             }
           );
           let lreqArr = checkedArr
@@ -135,7 +135,7 @@ const Home = () => {
             .join(", ");
           ldata[pkey] = lreqArr;
         } else {
-          ldata[pkey] = stateValue[pkey].value;
+          ldata[pkey] = stateValue[pkey]?.value;
         }
       });
       ldata.upload_date = getFullDate(new Date());
@@ -198,11 +198,6 @@ const Home = () => {
                 TOTAL BUILDWARE MALA
               </div>
               <div jsname="F0H8Yc" class="liS6Hc"></div>
-            </div>
-            <div class="zAVwcb"></div>
-            <div className="subHeadTitleCls">
-              The entered data will be stored into google sheet once you submit
-              the form.
             </div>
           </div>
 
@@ -306,7 +301,7 @@ const Home = () => {
             <div className="ReqHeadCls labelCls">Callback date</div>
             <div className="ReqHeadCls">
               <DatePicker
-                placeholderText="dd/mm/yyyy"
+                placeholderText="yyyy/mm/dd"
                 className="dateStyleCls"
                 selected={
                   stateValue?.callback_date?.value
@@ -314,7 +309,7 @@ const Home = () => {
                     : undefined
                 }
                 onChange={(date) => dateFn(date, "callback_date")}
-                dateFormat="dd-MM-yyyy"
+                dateFormat="yyyy-MM-dd"
               />
             </div>
             <div className="spacAddBtwnFildCls"></div>

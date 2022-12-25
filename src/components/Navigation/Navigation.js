@@ -1,9 +1,10 @@
 import React from "react";
 import "./Navigation.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useHistory   } from "react-router-dom";
+import { urlPaths } from "../../routes/urls";
 
 function Navigation(props) {
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       <div style={{ marginTop: "50px" }}>
@@ -15,7 +16,7 @@ function Navigation(props) {
             <div
               className="BackBlock"
               onClick={() =>
-                props.history.push(props.backPath ? props.backPath : "/")
+                navigate(-1)
               }
             >
               {!props.hideBack && (
@@ -38,14 +39,11 @@ function Navigation(props) {
           </div>
           <div style={{ marginRight:"1rem" }} className="my-auto text-center">
             <img
+              onClickCapture={()=>navigate(urlPaths.HOME)}
               height="25px"
               style={{ cursor: "pointer" }}
               src={require("../../assets/img/swamis.jpg")}
               alt="navigation"
-              onClick={() => {
-                props.setNavSelected(navigation.HOME);
-                props.history.push("/");
-              }}
               className="navImgCls"
             />
           </div>
