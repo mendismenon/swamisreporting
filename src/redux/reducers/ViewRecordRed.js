@@ -1,4 +1,4 @@
-import ViewRecords from "../../layout/ViewRecords/ViewRecords"
+import ViewRecords from "../../layout/ViewRecords/ViewRecords";
 import { VIEW_RECORDS, VIEW_RECORDS_FAILURE, VIEW_RECORDS_SUCCESS } from "../actions/ViewRecordsActn";
 
 

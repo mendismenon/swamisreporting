@@ -11,6 +11,9 @@
 .marginLeft1rem{
     margin-left: 1rem;
 }
+.padRight1rem{
+    padding-right: 1rem;
+}
 .bgClolor{
     background-color: rgb(240, 235, 248);
 }
@@ -72,5 +75,17 @@
         color: white;
         /* padding-top: 2px; */
         margin-top: 13px;
+    }
+    .rdrCalendarWrapper {
+        width: 100%;
+    }
+    .rdrDateRangePickerWrapper{
+        width: 100%;
+    }
+    .widthFull{
+        width: 100%;
+    }
+    .hbotQl{
+        white-space: normal !important;
     }
 }

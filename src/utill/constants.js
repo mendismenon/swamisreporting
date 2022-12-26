@@ -38,6 +38,8 @@ export const CUSTOMER_REQUIREMENT = [
   },
 ];
 export const REQUIREMENT = ["Hot", "Cold"];
+export const HOT_REQUIREMENT = "Hot";
+export const COLD_REQUIREMENT = "Cold"
 export const SHEET_FIELD_INDEX_MAPPING= {
   id: 0,
   name_of_sales_manager: 1,

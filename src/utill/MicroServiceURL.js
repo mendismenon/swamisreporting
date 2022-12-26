@@ -37,5 +37,6 @@ export const pageURL = {
   SHEET_URL_OLD: "https://sheet.best/api/sheets/d1cc308d-2e10-4a7a-96ee-0dff6d4de677",
   TOKEN_REFRESH: "https://developers.google.com/oauthplayground/refreshAccessToken",
   SHEET_URL_OLD1 : `https://sheets.googleapis.com/v4/spreadsheets/${SPREAD_SHEETS_ID}:batchUpdate`,
-  SAVE_USER: urlPrefixGlobal("saveUser")
+  SAVE_USER: urlPrefixGlobal("saveUser"),
+  FETCH_CALLDATA: urlPrefixGlobal("fetchCallRecords"),
 }

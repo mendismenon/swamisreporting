@@ -17,7 +17,7 @@ export const apiCall = async (pmethod, purl, preqObj) => {
         }
       });
   } else if (pmethod === "get") {
-    let lconfig = axiosConfig();
+    let lconfig = axiosConfig(true);
     lconfig.params = preqObj;
     return axios[pmethod](purl, lconfig)
       .then((response) => {
@@ -48,6 +48,26 @@ export const fetchCall = (pmethod, purl, preqObj) => {
           return err;
         } else {
           return err;
+        }
+      });
+  }else if (pmethod === "get") {
+    let lconfig = axiosConfig(true);
+    lconfig.params = preqObj;
+    return fetch(purl,{
+      method: pmethod,
+      headers: axiosConfig(true)?.headers,
+      body: JSON.stringify(preqObj)
+    })
+      .then((response) => {
+         return response.json();
+      }).then((response)=>{
+        return response;
+      })
+      .catch((err) => {
+        if (err.response.status === 401) {
+          //Logout()
+        } else {
+          return err.response;
         }
       });
   }

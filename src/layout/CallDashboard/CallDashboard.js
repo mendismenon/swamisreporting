@@ -11,18 +11,15 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import Button from "../../inputControls/button/Button";
-import { getFullDate } from "../../utill/util";
+import { getCallData, getFullDate } from "../../utill/util";
+import { viewRecordsActnFn } from "../../redux/actions/ViewRecordsActn";
+import CallsMade from "../../components/callDashboard/callesMade/CallsMade";
 
 const CallDashboard = () => {
   const [apiCalled, setApiCalled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [dateRangeSelect, setDateRangeSelect] = useState(false);
   const dispatch = useDispatch();
-  const viewRecordsData = useSelector((state) => {
-    return state.viewReducer.viewRecordObj.data;
-  });
-  const isLoading = useSelector((state) => {
-    return state.viewReducer.viewRecordObj.isLoading;
-  });
   const [state, setState] = useState([
     {
       startDate: new Date(),
@@ -31,11 +28,21 @@ const CallDashboard = () => {
       autoFocus: true,
     },
   ]);
+  const viewRecordsApiData = useSelector((state) => {
+    return state.viewReducer.viewRecordObj.data;
+  });
+  const isLoading = useSelector((state) => {
+    return state.viewReducer.viewRecordObj.isLoading;
+  });
   const Endate =
     state[0].endDate === null
       ? getFullDate(state[0].startDate)
       : getFullDate(state[0].endDate);
   const startDate = state[0].startDate ? getFullDate(state[0].startDate) : "";
+
+  useEffect(() => {
+    dispatch(viewRecordsActnFn());
+  }, []);
 
   return (
     <>
@@ -88,16 +95,18 @@ const CallDashboard = () => {
                 onClick={() => setOpen(!open)}
               />
             </div>
-            <div>
-              {state[0].startDate !== "" && state[0].endDate !== "" && (
-                <p>
-                  {startDate} {"- "}
-                  {Endate}
-                </p>
-              )}
+            <div className="marginLeft1rem padRight1rem">
+              {(dateRangeSelect || open) &&
+                state[0].startDate !== "" &&
+                state[0].endDate !== "" && (
+                  <p>
+                    {startDate} {"- "}
+                    {Endate}
+                  </p>
+                )}
             </div>
             {open && (
-              <>
+              <div className="widthFull">
                 <div>
                   <DateRangePicker
                     onChange={(item) => setState([item.selection])}
@@ -110,15 +119,29 @@ const CallDashboard = () => {
                   />
                 </div>
                 <div className="dispFlex">
-                  <Button value="Done Selection" className="secondary btnCls" />
+                  <Button
+                    value="Done Selection"
+                    className="btnCls"
+                    onClick={() => {
+                      setOpen(false);
+                      setDateRangeSelect(true);
+                    }}
+                  />
                   <Button
                     value="Clear Selection"
                     className="secondary btnCls marginLeft1rem"
+                    onClick={() => {
+                      setOpen(false);
+                      setDateRangeSelect(false);
+                    }}
                   />
                 </div>
-              </>
+              </div>
             )}
           </div>
+          {viewRecordsApiData?.length > 0 && (<div>
+            <CallsMade data={viewRecordsApiData} callData={getCallData(viewRecordsApiData)}/>
+          </div>)}
         </div>
       </div>
     </>

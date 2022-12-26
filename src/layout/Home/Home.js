@@ -67,7 +67,6 @@ const Home = () => {
   });
 
   useEffect(() => {
-    debugger;
     if (!errorResponseCheck && responseData !== null && apiCalled) {
       setShowPopUp({
         show: true,

@@ -1,14 +1,15 @@
 import { put, call, takeLatest } from "redux-saga/effects";
-import { apiCall } from "../../utill/Api";
+import { apiCall, fetchCall } from "../../utill/Api";
 import { pageURL } from "../../utill/MicroServiceURL";
 import { VIEW_RECORDS, VIEW_RECORDS_FAILURE, VIEW_RECORDS_SUCCESS } from "../actions/ViewRecordsActn";
 
 function* viewRecordsFn(action) {
     try{
-        let viewRecordsURL = pageURL.SHEET_URL;
-        let response = yield call(apiCall, "get", viewRecordsURL);
+        let viewRecordsURL = pageURL.FETCH_CALLDATA;
+        let response = yield call(fetchCall, "get", viewRecordsURL);
         console.log(response);
-        if (response?.status === 200) {
+        debugger;
+        if (response?.status === 200 || response?.status === 201) {
             yield put({ type: VIEW_RECORDS_SUCCESS, data: response.data });
         }else{
             yield put({ type: VIEW_RECORDS_FAILURE, data: response?.data });
